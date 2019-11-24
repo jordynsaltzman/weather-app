@@ -15,11 +15,11 @@
 ​
 
 <body>
-        <div class="jumbotron jumbotron-fluid" id="heading">
-                <h1 class="display-4" id="docHeading">Weather Dashboard</h1>
-                <h2 id="cityHeader"></h2>
-                <p class="lead" id="dateDisplay"></p>
-        </div>
+    <div class="jumbotron jumbotron-fluid" id="heading">
+        <h1 class="display-4" id="docHeading">Weather Dashboard</h1>
+        <h2 id="cityHeader"></h2>
+        <p class="lead" id="dateDisplay"></p>
+    </div>
 
 
     <div class="container">
@@ -27,14 +27,30 @@
             <div class="col-3" id="searches">
                 <div class="row">
                     <input type="text" id="city" placeholder="Search by city"></input>
-                    <button id="submit">Submit</button>
+                    <button class="btn btn-secondary" id="submit">Submit</button>
                 </div>
-                <div class="row" id="citiesDiv"></div>
+                <div class="row" id="citiesDiv">
+
+                    <table class="table">
+                        <thead>
+                            <tr id="tableHead">
+                                <th scope="col">Recent Searches</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+
+                   
+
+
+                </div>
             </div>
 
-            <div class="col-9">
-                <div class="row">
-                    <div id="todaysWeather">
+            <div class="col-9" id="weatherInfo">
+                <div class="row" id="todaysWeather">
+                    <div id="inline">
                         <div id="lowDiv"></div>
                         <div id="highDiv"></div>
                         <div id="humidity"></div>
@@ -42,7 +58,7 @@
                         <div id="description"></div>
                     </div>
                 </div>
-                <div class="row" >
+                <div class="row">
                     <h2 id="fiveDayForecast">5-Day Forecast</h2>
                 </div>
                 <div class="row">

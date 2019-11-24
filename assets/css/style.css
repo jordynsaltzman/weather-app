@@ -15,10 +15,11 @@
 
 #heading{
     text-align: center;
+    height: 250px;
 }
 
-#todaysWeather, #fiveDayForecast{
-    text-align: center;
+#fiveDayForecast{
+    margin-left: 25%;
 }
 
 #searches{
@@ -46,4 +47,20 @@
 
 #fiveDayForecast{
     margin-bottom: 25px;
+}
+
+#weatherInfo{
+    display: none;
+}
+
+.btn-outline-primary{
+    width: 100%;
+}
+
+#todaysWeather.row{
+    text-align: center;
+}
+
+#inline{
+    margin-left: 25%;
 }

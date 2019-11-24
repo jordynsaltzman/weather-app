@@ -2,20 +2,29 @@ $(document).ready(function () {
 
     setInterval(function () {
         $("#dateDisplay").text(moment().format("MMMM DD, YYYY"))
-        setColors();
     }, 1000);
+
+    cityList = JSON.parse(localStorage.getItem("city"));
+    if (cityList === null) {
+        cityList = [];
+    }
+
+    for (var i = 0; i < 5; i++) {
+        var cityRow = $("<tr>");
+        var cityColumn = $("<td>")
+        var cityLink = $("<button>")
+        cityLink.attr("class", "btn btn-outline-primary");
+        cityLink.text(cityList[i]);
+        $(cityColumn).append(cityLink);
+        $(cityRow).append(cityColumn);
+        $("tbody").append(cityRow);
+        
+    };
 
 
     $("#submit").on("click", function () {
+
         var city = $("#city").val().trim();
-        cityList = JSON.parse(localStorage.getItem("city"));
-        if (cityList === null) {
-            cityList = [];
-        }
-        cityList.push(city);
-        localStorage.setItem("city", JSON.stringify(cityList));
-
-
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
             city + "&appid=1f2cf6d8fabf4123eb61df651c4f522d";
 
@@ -39,17 +48,21 @@ $(document).ready(function () {
                 weather_icon = response.weather[0].icon + ".png"
                 $("#cityHeader").text(response.name);
 
-                if (response.weather[0].main === "Clouds") {
-                    //change day div to cloudy mode
+                var cityRow = $("<tr>");
+                var cityColumn = $("<td>")
+                var cityLink = $("<button>")
+                cityLink.text(response.name);
+                cityLink.attr("class", "btn btn-outline-primary");
+                $(cityColumn).append(cityLink);
+                $(cityRow).append(cityColumn);
+                $("tbody").prepend(cityRow);
+
+                cityList = JSON.parse(localStorage.getItem("city"));
+                if (cityList === null) {
+                    cityList = [];
                 }
-                else if (response.weather[0].main === "Rain") {
-                    //change day div to rainy mode
-                }
-                var cityButton = $("<button>");
-                cityButton.text(response.name);
-                $("#citiesDiv").prepend(cityButton);
-                $("#citiesDiv").append("<br/>");
-                cityButton.attr("class", "cityButton");
+                cityList.push(response.name);
+                localStorage.setItem("city", JSON.stringify(cityList));
 
             });
 
@@ -86,13 +99,12 @@ $(document).ready(function () {
                     $("#icon" + newDays[i]).attr("src", "http://openweathermap.org/img/wn/" + dayIcon + ".png");
                 };
 
-
-
-
-
+                $("#weatherInfo").attr("style", "display: block");
             });
 
 
+
+        
 
 
 

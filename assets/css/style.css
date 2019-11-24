@@ -24,6 +24,7 @@
 
 #searches{
     float: right;
+    background: #f8f8f8;
 }
 
 .container{
@@ -53,7 +54,7 @@
     display: none;
 }
 
-.btn-outline-primary{
+.btn-light{
     width: 100%;
 }
 
@@ -63,4 +64,26 @@
 
 #inline{
     margin-left: 25%;
+}
+
+@media (min-width: 576px) {
+.col-sm-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+}
+
+#city{
+    width:100%;
+}
+
+#submit{
+    width: 100%;
+}
+
+#recent{
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    background: #e2e3e6;
 }

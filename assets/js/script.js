@@ -9,11 +9,8 @@ $(document).ready(function () {
         cityList = [];
     }
 
-    for (var i = 0; i < 5; i++) {
+    for (var i = cityList.length; i > 0; i--) {
         if (cityList[i] != undefined){
-          
-        
-
 
         var cityRow = $("<tr>");
         var cityColumn = $("<td>")

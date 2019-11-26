@@ -10,6 +10,11 @@ $(document).ready(function () {
     }
 
     for (var i = 0; i < 5; i++) {
+        if (cityList[i] != undefined){
+          
+        
+
+
         var cityRow = $("<tr>");
         var cityColumn = $("<td>")
         var cityLink = $("<button>")
@@ -19,7 +24,7 @@ $(document).ready(function () {
         $(cityColumn).append(cityLink);
         $(cityRow).append(cityColumn);
         $("tbody").append(cityRow);
-        
+    }
     };
 
 
